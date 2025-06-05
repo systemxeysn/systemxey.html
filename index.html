@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SystemXey - Insertion professionnelle</title>
+  <style>
+    :root {
+      --mauve: #7f5af0;
+      --vert: #2ecc71;
+      --noir: #1e1e1e;
+      --blanc: #ffffff;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background-color: var(--vert);
+      color: var(--noir);
+    }
+
+    header {
+      background-color: var(--mauve);
+      color: var(--blanc);
+      padding: 2rem;
+      text-align: center;
+    }
+
+    nav {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 1rem;
+      background-color: var(--blanc);
+      padding: 1rem;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: var(--noir);
+      font-weight: bold;
+    }
+
+    .container {
+      padding: 2rem;
+    }
+
+    .section-title {
+      color: var(--mauve);
+      margin-bottom: 1rem;
+      font-size: 1.8rem;
+    }
+
+    .search-bar {
+      margin-bottom: 1.5rem;
+      text-align: center;
+    }
+
+    .search-bar input {
+      padding: 0.5rem;
+      width: 80%;
+      max-width: 400px;
+      font-size: 1rem;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+
+    .grid-profiles {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .card {
+      background-color: var(--blanc);
+      padding: 1rem;
+      border-radius: 8px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+
+    button {
+      background-color: var(--mauve);
+      color: var(--blanc);
+      border: none;
+      padding: 0.5rem 1rem;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 1rem;
+    }
+
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 999;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.6);
+    }
+
+    .modal-content {
+      background-color: var(--blanc);
+      margin: 10% auto;
+      padding: 2rem;
+      border-radius: 8px;
+      width: 90%;
+      max-width: 500px;
+    }
+
+    .close {
+      float: right;
+      font-size: 1.2rem;
+      font-weight: bold;
+      color: var(--noir);
+      cursor: pointer;
+    }
+
+    footer {
+      text-align: center;
+      padding: 2rem;
+      background-color: var(--mauve);
+      color: var(--blanc);
+      margin-top: 2rem;
+    }
+
+    @media screen and (max-width: 600px) {
+      header h1 {
+        font-size: 1.8rem;
+      }
+
+      nav {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .container {
+        padding: 1rem;
+      }
+
+      .section-title {
+        font-size: 1.5rem;
+        text-align: center;
+      }
+
+      button {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>SystemXey</h1>
+    <p>Facilitons ensemble l'insertion professionnelle des jeunes diplômés</p>
+  </header>
+
+  <nav>
+    <a href="#apropos">À propos</a>
+    <a href="#etudiants">Étudiants</a>
+    <a href="#recruteurs">Recruteurs</a>
+    <a href="#contact">Contact</a>
+  </nav>
+
+  <main class="container">
+    <section id="apropos">
+  <h2 class="section-title">À propos du projet</h2>
+  <img src="image/image1.png" alt="Équipe digitale en projet" style="max-width: 100%; border-radius: 8px; margin-bottom: 1rem;">
+  <p>SystemXey est une plateforme conçue pour valoriser les compétences des étudiants sénégalais en fin de cycle. Ce projet s'inscrit dans une stratégie de communication digitale destinée à accroître leur visibilité auprès des recruteurs.</p>
+</section>
+    <section id="etudiants">
+      <h2 class="section-title">Profils d'étudiants</h2>
+      <div class="search-bar">
+        <input type="text" id="searchInput" placeholder="Rechercher un nom ou une spécialité...">
+      </div>
+      <div class="grid-profiles" id="profiles">
+        <div class="card">
+          <h3>AHMADE TIDIANE DIALLO</h3>
+          <p>Spécialiste en UX Design</p>
+          <button onclick="openModal()">Voir le profil</button>
+        </div>
+        <div class="card">
+          <h3>EPHIGENIE NIAKH</h3>
+          <p>Développeuse Web & Contenu</p>
+          <button>Voir le profil</button>
+        </div>
+        <div class="card">
+          <h3>NABOU NDIAYE</h3>
+          <p>Chargée de communication digitale</p>
+          <button>Voir le profil</button>
+        </div>
+        <div class="card">
+          <h3>AMINATA LO</h3>
+          <p>Community Manager & Designer</p>
+          <button>Voir le profil</button>
+        </div>
+        <div class="card">
+          <h3>MARIAMA KANDE</h3>
+          <p>Développeuse Front-End</p>
+          <button>Voir le profil</button>
+        </div>
+      </div>
+    </section>
+
+    <section id="recruteurs">
+      <h2 class="section-title">Espace Recruteurs</h2>
+      <p>Accédez à une base de données de jeunes talents qualifiés, prêts à intégrer le marché du travail. Pour recevoir des profils ciblés, contactez-nous.</p>
+    </section>
+
+    <section id="contact">
+      <h2 class="section-title">Contact</h2>
+      <p>Email : systemxey2.0@gmail.com</p>
+      <p>Téléphone : +221 76 015 01 56</p>
+    </section>
+  </main>
+
+  <div id="profileModal" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="closeModal()">&times;</span>
+      <h2>AHMADE TIDIANE DIALLO</h2>
+      <p><strong>Spécialité :</strong> UX Design</p>
+      <p><strong>Bio :</strong> Étudiant passionné par l'expérience utilisateur, créatif et rigoureux. Souhaite apporter des solutions numériques centrées sur l'humain.</p>
+      <p><strong>Email :</strong> ahmade.tidiane@etudiant.sn</p>
+    </div>
+  </div>
+
+  <footer>
+    <p>&copy; 2025 SystemXey. Tous droits réservés.</p>
+  </footer>
+
+  <script>
+    const searchInput = document.getElementById("searchInput");
+    const cards = document.querySelectorAll(".card");
+    const modal = document.getElementById("profileModal");
+
+    searchInput.addEventListener("input", () => {
+      const filter = searchInput.value.toLowerCase();
+      cards.forEach(card => {
+        const text = card.innerText.toLowerCase();
+        card.style.display = text.includes(filter) ? "block" : "none";
+      });
+    });
+
+    function openModal() {
+      modal.style.display = "block";
+    }
+
+    function closeModal() {
+      modal.style.display = "none";
+    }
+
+    window.onclick = function(event) {
+      if (event.target === modal) {
+        closeModal();
+      }
+    }
+  </script>
+  <header>
+    <a href="index.html">
+      <img src="image/logo_systemxey.png" alt="Logo SystemXey">
+    </a>
+    <div>
+      <h1>SystemXey</h1>
+      <p>Facilitons ensemble l'insertion professionnelle des jeunes diplômés</p>
+    </div>
+  </header>
+</body>
+</html>
